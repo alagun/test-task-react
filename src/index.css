@@ -64,8 +64,8 @@ img {
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--body-color);
-  /* background-color: grey; */
+  /* background-color: var(--body-color); */
+  background-color: grey;
   color: var(--primary-text);
 }
 
@@ -75,10 +75,12 @@ body {
   margin: 50px auto;
 }
 .section {
+  position: relative;
   height: 165px;
   padding: 1rem 0.5rem;
   transition: all 0.5s;
   background-color: var(--primary-bg);
+  overflow: hidden;
 }
 .section.active {
   height: 500px;
@@ -153,4 +155,11 @@ body {
 .dot-img {
   width: 1.5rem;
   height: 1.5rem;
+}
+.description {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: calc(100% - 165px);
+  margin-top: 165px;
 }
