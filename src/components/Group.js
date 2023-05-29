@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import Progress from "./Progress";
+import Skills from "./Skills";
 
-export default function Group({ title, subtitle, obj }) {
-  let information = obj.map((el, index) => <Progress key={index} obj={el} />);
+export default function Group({ component }) {
+  let information = "";
+  if (component.component !== "skills") {
+    information = component.info.map((el, index) => (
+      <Progress key={index} obj={el} />
+    ));
+  } else {
+    information = component.info.map((el, index) => (
+      <Skills key={index} obj={el} />
+    ));
+  }
 
   const [angle, setAngle] = useState(0);
   const [active, setActive] = useState("");
@@ -17,7 +27,7 @@ export default function Group({ title, subtitle, obj }) {
     }
   };
   return (
-    <div className={`section ${active}`}>
+    <div className={`section large ${active}`}>
       <div className="section__title">
         <div
           onClick={openDrop}
@@ -27,15 +37,24 @@ export default function Group({ title, subtitle, obj }) {
             transform: `rotate(${angle}deg)`,
           }}
         ></div>
-        <span>{title}</span>
+        <span>{component.title}</span>
       </div>
       <div className="section__subtitle">
-        <span>{subtitle}</span>
+        <span>{component.subtitle}</span>
       </div>
-      <div className="stats">{information}</div>
+      <div
+        className="stats"
+        style={
+          component.component !== "skills"
+            ? { gap: `2.625rem` }
+            : { gap: `1rem`, marginTop: `1.6rem` }
+        }
+      >
+        {information}
+      </div>
       <div className="description">
         <div className="description-item">
-          <h3 className="desritpion-title">{obj[0].title}</h3>
+          <h3 className="desritpion-title">{component.info[0].title}</h3>
           <span className="desritpion-text">
             {
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet suscipit cupiditate exercitationem blanditiis. Commodi, impedit sint eaque quibusdam quis debitis consectetur nostrum soluta sequi odit. Quas dicta vero dignissimos quo!"
@@ -49,7 +68,7 @@ export default function Group({ title, subtitle, obj }) {
           </span>
         </div>
         <div className="description-item">
-          <h3 className="desritpion-title">{obj[1].title}</h3>
+          <h3 className="desritpion-title">{component.info[1].title}</h3>
           <span className="desritpion-text">
             {
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet suscipit cupiditate exercitationem blanditiis. Commodi, impedit sint eaque quibusdam quis debitis consectetur nostrum soluta sequi odit. Quas dicta vero dignissimos quo!"
@@ -63,7 +82,7 @@ export default function Group({ title, subtitle, obj }) {
           </span>
         </div>
         <div className="description-item">
-          <h3 className="desritpion-title">{obj[2].title}</h3>
+          <h3 className="desritpion-title">{component.info[2].title}</h3>
           <span className="desritpion-text">
             {
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet suscipit cupiditate exercitationem blanditiis. Commodi, impedit sint eaque quibusdam quis debitis consectetur nostrum soluta sequi odit. Quas dicta vero dignissimos quo!"
