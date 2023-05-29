@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
 const Skills = ({ obj }) => {
-  // 440 старт 56 конец для полного круга 384
-  // perem максимум 100
   let perem = obj.value;
-  // меняя коэффициент долазим до нужного
   let k = 23 / 18;
   let r = 139;
   let x = +Math.cos((Math.PI * k * perem) / 100).toFixed(5);
@@ -52,7 +49,7 @@ const Skills = ({ obj }) => {
     } else if (obj.value >= 65) {
       if (obj.title === "Темп речи") {
         setPaceType({
-          pace: "быстро",
+          state: "быстро",
           description: "Ваш темп речи слишком быстрый.",
         });
       } else if (obj.title === "Громкость голоса") {
@@ -67,7 +64,7 @@ const Skills = ({ obj }) => {
         });
       }
     }
-  }, []);
+  }, [obj.title, obj.value]);
 
   const states = () => {
     if (obj.title === "Темп речи") {

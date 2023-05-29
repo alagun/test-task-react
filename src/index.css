@@ -264,9 +264,24 @@ body {
   text-transform: uppercase;
   font-size: 20px;
   line-height: 25px;
-  /* margin-top: 30.5px; */
   margin-bottom: var(--mb-0-5);
 }
+
 .right-side-content-text {
   display: inline-block;
+}
+
+.btn {
+  display: block;
+  margin: 1rem auto;
+  background-color: var(--second-bg-progress);
+  font-size: 16px;
+  padding: 14px 40px;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 2px solid var(--second-bg-progress);
+  border-radius: 8px;
+}
+.btn:hover {
+  background-color: var(--first-bg-progress);
 }
