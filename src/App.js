@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Group from "./components/Group";
+import Group from "./components/group/Group";
 
 function App() {
   let [component2, setComponent2] = useState({

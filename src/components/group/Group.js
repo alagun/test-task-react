@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Progress from "./Progress";
-import Skills from "./Skills";
+import Progress from "../progress/Progress";
+import Skills from "../skills/Skills";
 
 export default function Group({ component }) {
   let information = "";
@@ -27,7 +27,11 @@ export default function Group({ component }) {
     }
   };
   return (
-    <div className={`section large ${active}`}>
+    <div
+      className={`section ${active} ${
+        component.component !== "skills" ? "small" : "large"
+      }`}
+    >
       <div className="section__title">
         <div
           onClick={openDrop}
