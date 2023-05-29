@@ -136,7 +136,7 @@ function App() {
         },
       ],
     });
-    return arr;
+    return random;
   };
   return (
     <div className="wrapper">
